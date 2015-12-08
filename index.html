@@ -6,6 +6,7 @@
 	<title>Todo List</title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div class="container"  ng-app="todoApp"  ng-controller="toDoCtrl">
@@ -16,17 +17,18 @@
 	<form  ng-submit="add()">
 	<!--ng-submit,只要表单提交了,就会执行-->
 	<div class="row">
-		<div class="col-lg-5 col-mod-5 col-xs-5 form-inline">
-				<select class="form-control" ng-model="color">
-					<option value="list-group-item-success">green</option>
-					<option value="list-group-item-danger">red</option>
-					<option value="list-group-item-info">blue</option>
-					<option value="list-group-item-warning">yellow</option>
-				</select>
-				<input type="text" class="form-control" ng-model="content">
-				<button type="submit" class="btn btn-danger">提交任务</button>
+		<div class="col-lg-8 col-mod-8 col-xs-8 form-inline">
+			<select class="form-control" ng-model="color">
+				<option value="list-group-item-success">green</option>
+				<option value="list-group-item-danger">red</option>
+				<option value="list-group-item-info">blue</option>
+				<option value="list-group-item-warning">yellow</option>
+			</select>
+			任务内容:<input type="text" class="form-control" ng-model="content">
+			<button type="submit" class="btn btn-danger">提交任务</button>
 		</div>
 	</div>
+
 	</form>
 	<!---->
 	<div class="col-lg-5 col-mod-5 col-xs-5 ">
@@ -35,12 +37,14 @@
 		<ol class="list-group">
 		<li ng-repeat="todo in todoList track by $index" class="list-group-item {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
-			<input type="checkbox"  ng-click="todoList.splice($index,1)">{{todo.content}}
+			<input type="checkbox"  ng-click="todoList.splice($index,1)"> {{todo.content}}
+			<span class="pull-right">{{todo.date}}创建</span>
 			<!--ng-click="todoList.splice($index,1)"点击删除当前条目 , ($index,1)循环遍历的索引值-->
 		</li>
 	</ol>
 	</div>
 	<!---->
+
 </div>
 <script src="js/angular.min.js"></script>
 <script src="js/app.js"></script>
