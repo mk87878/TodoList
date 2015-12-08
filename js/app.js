@@ -6,7 +6,10 @@ angular
     .controller('toDoCtrl',['$scope',function($scope){
         $scope.todoList = [];
         $scope.add = function(){
-            $scope.todoList.push($scope.content);//获取提交内容
+            $scope.todoList.push({
+                content:$scope.content,//获取提交文字内容
+                color:$scope.color,//获取提交的css样式名称
+            });
             $scope.content = '';//清空form
         };
     }]);
