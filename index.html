@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-cloak="">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Todo List</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="toDoCtrl">
+	<div class="row">
+		<h1 class="col-lg-5 col-mod-5 col-xs-5 text-center"> TodoList</h1>
+	</div>
+	<!---->
+	<form action ="" >
+	<div class="row">
+		<div class="col-lg-5 col-mod-5 col-xs-5 form-inline">
+				<select class="form-control">
+					<option value="abc">abc</option>
+					<option value="abc">abc</option>
+				</select>
+				<input type="text" class="form-control">
+				<button type="submit" class="btn btn-danger">提交任务</button>
+		</div>
+	</div>
+	</form>
+	<!---->
+	<div class="col-lg-5 col-mod-5 col-xs-5 ">
+	<ol class="list-group">
+		<h3>List:</h3>
+		<li class="list-group-item"><input type="checkbox">content</li>
+	</ol>
+	</div>
+	<!---->
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
