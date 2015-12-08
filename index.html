@@ -24,8 +24,13 @@
 				<option value="list-group-item-info">blue</option>
 				<option value="list-group-item-warning">yellow</option>
 			</select>
-			任务内容:<input type="text" class="form-control" ng-model="content">
-			<button type="submit" class="btn btn-danger">提交任务</button>
+			<label>任务内容:</label><input type="text" class="form-control" ng-model="content">
+			<button type="submit" class="btn btn-success">提交任务</button>
+			<span class="pull-right">
+				<label>teamName:</label>
+				<input type="text" class="form-control" ng-model="team">
+				<button type="submit" class="btn btn-info">创建分组</button>
+			</span>
 		</div>
 	</div>
 
@@ -38,13 +43,12 @@
 		<li ng-repeat="todo in todoList track by $index" class="list-group-item {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
 			<input type="checkbox"  ng-click="todoList.splice($index,1)"> {{todo.content}}
-			<span class="pull-right">{{todo.date}}创建</span>
+			<span class="pull-right">{{todo.date}}</span>
 			<!--ng-click="todoList.splice($index,1)"点击删除当前条目 , ($index,1)循环遍历的索引值-->
 		</li>
 	</ol>
 	</div>
 	<!---->
-
 </div>
 <script src="js/angular.min.js"></script>
 <script src="js/app.js"></script>

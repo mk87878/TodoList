@@ -20,7 +20,12 @@ angular
             $scope.content = '';//清空内容
         };
 
-
+        $scope.addTeam = function(){
+            $scope.teamList.push({
+                team:$scope.team,//分组
+            });
+            $scope.content = '';//清空内容
+        };
 
 
     }]);
