@@ -43,7 +43,7 @@
 		<li ng-repeat="todo in todoList track by $index" class="list-group-item {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
 			<input type="checkbox"  ng-click="todoList.splice($index,1)"> {{todo.content}}
-			<span class="pull-right">{{todo.date}}</span>
+			<span class="pull-right">{{todo.date}}创建</span>
 			<!--ng-click="todoList.splice($index,1)"点击删除当前条目 , ($index,1)循环遍历的索引值-->
 		</li>
 	</ol>
