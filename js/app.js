@@ -7,11 +7,11 @@ angular
     .value('todoList',[])
     .controller['addCtrl',addCtrl]
     .controller['listCtrl',listCtrl]
-    .service('taskCtrl',tasksCtrl)
+    .service('taskService',tasksService)
 ;
 function addCtrl($scope, todoList){
-    $scope.add =add;
-    function add(){
+    $scope.addTodo = addTodo;
+    function addTodo(){
         $scope.todoList.push({
             content:$scope.content,//获取提交任务内容
             color:$scope.color,//获取提交的css样式名称
@@ -21,8 +21,32 @@ function addCtrl($scope, todoList){
         $scope.content = '';//清空内容
     };
 }
-function listCtrl($scope){}
-function tasksCtrl($scope){}
+
+function listCtrl($scope, tasksService){
+    $scope.todo = tasksService.todo;
+
+
+}
+
+function tasksService(todoList){
+    var tasksService = {
+        colorOptions:getAllColorOptions,
+        addTodo:addTodo,
+        todo:[],
+    };
+
+
+    function getAllColorOptions() {
+        return [
+            {name:'信息', code: 'info'},
+            {name:'危险', code: 'danger'}
+        ];
+    };
+    function addTodo(todoData){
+
+    }
+
+}
 
 
 
