@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoApp" >
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,22 +9,23 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container"  ng-app="todoApp"  ng-controller="toDoCtrl">
+<div class="container"   ng-controller="toDoCtrl">
 	<div class="row">
 		<h1 class="col-lg-5 col-mod-5 col-xs-5 text-center"> TodoList</h1>
 	</div>
 	<!---->
-	<form  ng-submit="add()">
+	<form  ng-submit="addTodo()">
 	<!--ng-submit,只要表单提交了,就会执行-->
 	<div class="row">
 		<div class="col-lg-8 col-mod-8 col-xs-8 form-inline">
-			<select class="form-control" ng-model="color">
-				<option value="list-group-item-success">green</option>
-				<option value="list-group-item-danger">red</option>
-				<option value="list-group-item-info">blue</option>
-				<option value="list-group-item-warning">yellow</option>
+			<select class="form-control"
+					ng-model="createTodo.color"
+					ng-options="color.code as color.name for color in colorOptions">
+				<!--<option value="" >choose color</option>-->
 			</select>
-			<label>任务内容:</label><input type="text" class="form-control" ng-model="content">
+
+			<label>任务内容:</label>
+			<input type="text" class="form-control" ng-model="createTodo.content">
 			<button type="submit" class="btn btn-success">提交任务</button>
 			<span class="pull-right">
 				<label>teamName:</label>
@@ -35,6 +36,8 @@
 	</div>
 
 	</form>
+
+
 	<!---->
 	<div class="col-lg-5 col-mod-5 col-xs-5 ">
 		<h3 ng-hide="todoList.length===0">List:</h3>
@@ -51,6 +54,7 @@
 	<!---->
 </div>
 <script src="js/angular.min.js"></script>
+<script src="js/ngStorage.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
