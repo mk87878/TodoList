@@ -27,7 +27,8 @@ angular
         $scope.createTodo = {
             content:'',//任务内容
             color:'list-group-item-info',//css样式名称
-            isDo:'false',//分组
+            isDo:'false',//是否完成
+            team:'',//分组
             date:''
         };
 
@@ -36,7 +37,8 @@ angular
             $scope.todoList.push({
                 content:$scope.createTodo.content,//获取提交任务内容
                 color:$scope.createTodo.color,//获取提交的css样式名称
-                isDo:'false',//分组
+                isDo:'false',//是否完成
+                team:'',//分组
                 date:getNowDate()
             });
             $scope.createTodo.content = '';//清空内容
@@ -50,7 +52,6 @@ angular
 
         //删除
         <!--ng-click="todoList.splice($index,1)"点击删除当前条目 , ($index,1)循环遍历的索引值-->
-
         $scope.removeTask = function (todo) {
             $scope.todoList.splice($scope.todoList.indexOf(todo), 1);
             $scope.save();

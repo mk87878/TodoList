@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container"   ng-controller="toDoCtrl">
+<div class="container"  ng-controller="toDoCtrl">
 	<div class="row">
 		<h1 class="col-lg-5 col-mod-5 col-xs-5 text-center"> TodoList</h1>
 	</div>
@@ -23,15 +23,15 @@
 					ng-options="color.code as color.name for color in colorOptions">
 				<!--<option value="" >choose color</option>-->
 			</select>
+			<label>任务分类:</label>
+			<input type="text" class="form-control" ng-model="team">
 
 			<label>任务内容:</label>
 			<input type="text" class="form-control" ng-model="createTodo.content">
 			<button type="submit" class="btn btn-success">提交任务</button>
-			<!--<span class="pull-right">-->
-				<!--<label>teamName:</label>-->
-				<!--<input type="text" class="form-control" ng-model="team">-->
-				<!--<button type="submit" class="btn btn-info">创建分组</button>-->
-			<!--</span>-->
+			<span class="pull-right">
+
+			</span>
 		</div>
 	</div>
 
@@ -43,11 +43,11 @@
 		<h3 class="row">List:</h3>
 		<!--ng-hide隐藏内容,当没有内容的时候不显示-->
 		<div class="btn-group-xs row" role="group">
+			<button type="button" class="btn btn-default" ng-click="query.isDo=''">全部</button>
 			<button type="button" class="btn btn-default" ng-click="query.isDo=false">未完成</button>
 			<button type="button" class="btn btn-default" ng-click="query.isDo=true">已完成</button>
-			<button type="button" class="btn btn-default" ng-click="query.isDo=''">全部</button>
 		</div>
-		<ol class="list-group row">
+		<ol class="row">
 		<li ng-repeat="todo in todoList | filter:query track by $index " class="list-group-item col-mod-8 col-xs-8  {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
 			<input type="checkbox" ng-model="todo.isDo" ng-click="save()"> {{todo.content}}
