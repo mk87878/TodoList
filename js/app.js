@@ -38,7 +38,7 @@ angular
                 content:$scope.createTodo.content,//获取提交任务内容
                 color:$scope.createTodo.color,//获取提交的css样式名称
                 isDo:'false',//是否完成
-                team:'',//分组
+                team:$scope.createTodo.team,//分组
                 date:getNowDate()
             });
             $scope.createTodo.content = '';//清空内容

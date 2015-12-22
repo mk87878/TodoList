@@ -24,7 +24,7 @@
 				<!--<option value="" >choose color</option>-->
 			</select>
 			<label>任务分类:</label>
-			<input type="text" class="form-control" ng-model="team">
+			<input type="text" class="form-control" ng-model="createTodo.team">
 
 			<label>任务内容:</label>
 			<input type="text" class="form-control" ng-model="createTodo.content">
@@ -48,7 +48,7 @@
 			<button type="button" class="btn btn-default" ng-click="query.isDo=true">已完成</button>
 		</div>
 		<ol class="row">
-		<li ng-repeat="todo in todoList | filter:query track by $index " class="list-group-item col-mod-8 col-xs-8  {{todo.color}}"  >
+		<li ng-repeat="todo in todoList | filter:query | orderBy:'team' track by $index " class="list-group-item col-mod-8 col-xs-8  {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
 			<input type="checkbox" ng-model="todo.isDo" ng-click="save()"> {{todo.content}}
 			<a type="button" class="close" data-dismiss="alert" ng-click="removeTask(todo)" >x</a>
