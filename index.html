@@ -51,6 +51,7 @@
 		<li ng-repeat="todo in todoList | filter:query | orderBy:'team' track by $index " class="list-group-item col-mod-8 col-xs-8  {{todo.color}}"  >
 			<!--track by $index 跟踪索引数组,忽略重复内容检查-->
 			<input type="checkbox" ng-model="todo.isDo" ng-click="save()"> {{todo.content}}
+			<span class="text-danger col-md-offset-1" ng-hide="todo.team.length===0">{{todo.team}}组</span>
 			<a type="button" class="close" data-dismiss="alert" ng-click="removeTask(todo)" >x</a>
 			<span class=" pull-right"> {{todo.date}}创建</span>
 
